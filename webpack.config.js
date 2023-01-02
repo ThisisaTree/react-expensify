@@ -1,34 +1,54 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+module.exports = (env, argv) => {
 
-module.exports = {
-    entry: "./src/app.js",
-    node: {
-        __dirname: true
-      },
-    output: {
-        path: path.join(__dirname, 'public'),
-        filename: "bundle.js"
-    },
-    module: {
-        rules: [{
-            loader: 'babel-loader',
-            test: /\.js$/,
-            exclude: /node_modules/
-        },{
-            test: /\.s?css$/,
-            use: [
-                'style-loader',
-                'css-loader',
-                'sass-loader'
+    const isProduction = argv.mode === 'production';
+    console.log('env', argv.mode);
+
+    return {
+        entry: "./src/app.js",
+        node: {
+            __dirname: true
+        },
+        output: {
+            path: path.join(__dirname, 'public'),
+            filename: "bundle.js"
+        },
+        module: {
+            rules: [{
+                loader: 'babel-loader',
+                test: /\.js$/,
+                exclude: /node_modules/
+            },{
+                test: /\.s?css$/,
+                use: [MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    }
+                ]
+            }
             ]
-        }
-        ]
-    },
-    devtool: 'eval-cheap-module-source-map',
-    devServer: {
-        static: path.join(__dirname, 'public'),
-        historyApiFallback: true
-    },
-    mode: "development"
-};
+        },
+        plugins: [
+            new MiniCssExtractPlugin({ 
+                filename: 'styles.css'
+            })
+        ],
+        devtool: isProduction ? 'source-map' : 'inline-cheap-module-source-map',
+        devServer: {
+            static: path.join(__dirname, 'public'),
+            historyApiFallback: true
+        },
+        mode: "development"
+    };
+}
