@@ -5,11 +5,13 @@ import { Provider } from 'react-redux';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import {addExpense} from './actions/expenses';
-import {sortByAmount, sortByDate, setTextFilter} from './actions/filters';
+import {sortByAmount, sortByDate, setTextFilter, setStartDate, setEndDate} from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 
 import 'normalize.css/normalize.css';
-import './styles/styles.scss'
+import './styles/styles.scss';
+
+import './firebase/firebase';
 
 // ReactDOM.render(<User name={"Mate"} age={12}/>, document.getElementById('app'));
 
@@ -33,7 +35,7 @@ const expFour = store.dispatch(addExpense({description: 'Water bill', amount: 10
 // store.dispatch(sortByAmount());
 // store.dispatch(sortByDate());
 
-// store.dispatch(setStartDate(1200));
+// store.dispatch(setStartDate(0));
 // store.dispatch(setEndDate(2000));
 const jsx = (
     <Provider store={store}>
