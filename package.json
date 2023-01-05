@@ -129,7 +129,7 @@
     "build:prod": "webpack --mode production",
     "test": "jest --watchAll",
     "start": "node server/server.js",
-    "heroku-postbuild": "yarn run build:prod"
+    "heroku-postbuild": "npm run build:prod"
   },
   "author": "",
   "license": "ISC",
