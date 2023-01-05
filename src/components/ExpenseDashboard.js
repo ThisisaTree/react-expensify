@@ -10,6 +10,7 @@ const ExpenseDashboardPage = () => (
         <ExpensesSummary/>
         <ExpenseListFilters/>
         <ExpenseList/>
+        <h1>Mi van Marci, semmi?</h1>
     </div>
 );
 
