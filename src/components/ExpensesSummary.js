@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import getVisibleExpenses from "../selectors/expenses";
 import { selectExpensesTotal } from '../selectors/expenses-total';
-
+import numeral from 'numeral';
 
 const ExpensesSummary = (props) => {
 
     return(
     <div>
         <h1>Summary</h1>
-        <p>Viewing {props.count} expense{props.count > 1 && "s"} totalling ${props.total}</p>
+        <p>Viewing {props.count} expense{props.count > 1 && "s"} totalling {numeral(props.total).format('$0,0.00')}</p>
     </div>
 )};
 
