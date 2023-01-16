@@ -20,7 +20,7 @@ const store = configureStore();
 store.subscribe(() => {
     const state = store.getState();
     const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-    console.log(visibleExpenses);
+    // console.log(visibleExpenses);
 })
 
 const expOne = store.dispatch(addExpense({description: 'Gas fee', amount: 100, createdAt: 1000}));
