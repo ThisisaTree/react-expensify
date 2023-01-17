@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
-import {addExpense} from './actions/expenses';
+import {startSetExpenses} from './actions/expenses';
 import {sortByAmount, sortByDate, setTextFilter, setStartDate, setEndDate} from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 
@@ -17,6 +17,7 @@ import './firebase/firebase';
 
 const store = configureStore();
 
+/*
 store.subscribe(() => {
     const state = store.getState();
     const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
@@ -27,6 +28,7 @@ const expOne = store.dispatch(addExpense({description: 'Gas fee', amount: 100, c
 const expTwo = store.dispatch(addExpense({description: 'Coffee', amount: 300, createdAt: 700}));
 const expThree = store.dispatch(addExpense({description: 'Rent', amount: 1000, createdAt: 500}));
 const expFour = store.dispatch(addExpense({description: 'Water bill', amount: 100, createdAt: 500}));
+*/
 
 // store.dispatch(removeExpense({id: expOne.expense.id}));
 // store.dispatch(editExpense(expTwo.expense.id, {amount: 500}));
@@ -37,10 +39,17 @@ const expFour = store.dispatch(addExpense({description: 'Water bill', amount: 10
 
 // store.dispatch(setStartDate(0));
 // store.dispatch(setEndDate(2000));
+
 const jsx = (
     <Provider store={store}>
         <AppRouter/>
     </Provider>
     );
 
-ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+
+store.dispatch(startSetExpenses()).then(() => {
+
+
+    ReactDOM.render(jsx, document.getElementById('app'));
+});

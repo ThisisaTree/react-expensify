@@ -22,7 +22,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 
+export {db as default}
 
+/*
 onValue(ref(db, 'expenses/'), (snapshot) => {
     const expenses = [];
     snapshot.forEach((childSnapshot) => {
@@ -34,9 +36,7 @@ onValue(ref(db, 'expenses/'), (snapshot) => {
     console.log(expenses);
 });
 
-export {db as default}
 
-/*
 push(ref(db, 'expenses'), {
     description: "Gas bill",
     note: "note for expense 1",
