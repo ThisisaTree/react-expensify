@@ -4,7 +4,7 @@ import {NavLink } from 'react-router-dom';
 const Header = () => (
     <header>
         <h1>Expensify</h1>
-        <NavLink to ="/"
+        <NavLink to ="/dashboard"
                  className = {({isActive}) => isActive ? 'is-active' : undefined}>
             Dashboard
         </NavLink>
