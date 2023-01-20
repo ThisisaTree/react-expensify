@@ -63,6 +63,7 @@
     "has-flag": "^3.0.0",
     "has-property-descriptors": "^1.0.0",
     "has-symbols": "^1.0.3",
+    "history": "^5.3.0",
     "inflight": "^1.0.6",
     "inherits": "^2.0.4",
     "is-binary-path": "^2.1.0",
