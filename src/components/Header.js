@@ -1,7 +1,15 @@
 import React from 'react';
 import {NavLink } from 'react-router-dom';
+import { startLogout } from '../actions/auth';
+import {connect} from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
-const Header = () => (
+const Header = () => {
+    
+
+    const navigate = useNavigate();
+
+    return (
     <header>
         <h1>Expensify</h1>
         <NavLink to ="/dashboard"
@@ -17,7 +25,9 @@ const Header = () => (
             Help
         </NavLink>
     </header>
-);
+)};
+
+// <button onClick={startLogout(navigate)}>Logout</button>
 
 
 

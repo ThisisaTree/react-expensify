@@ -31,9 +31,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 
-const auth = getAuth(app);
-const googleAuthProvider = new GoogleAuthProvider();
+const auth = getAuth();
+const provider = new GoogleAuthProvider();
 
+/*
 const signInWithGoogle = async () => {
     try {
         const googleAuthProvider = new GoogleAuthProvider();
@@ -55,8 +56,9 @@ const signInWithGoogle = async () => {
       alert(err.message);
     }
   };
+  */
 
-export {googleAuthProvider, auth, signInWithGoogle, db as default}
+export {provider, auth, db as default}
 
 /*
 onValue(ref(db, 'expenses/'), (snapshot) => {

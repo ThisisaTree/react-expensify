@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Router } from 'react-router-dom';
+import { createBrowserHistory } from "history";
+
 import Header from '../components/Header';
 import ExpenseDashboardPage from '../components/ExpenseDashboard';
 import EditExpensePage from '../components/EditExpense';
@@ -12,7 +14,7 @@ import LoginPage from '../components/LoginPage';
 const AppRouter = () => (
 
     <BrowserRouter>
-        {true && <Header/>}
+        {!(window.location.pathname === '/') && <Header/>}
         <Routes>
             <Route path='/' element={<LoginPage/>}/>
             <Route path='/dashboard' element={<ExpenseDashboardPage/>}/>
