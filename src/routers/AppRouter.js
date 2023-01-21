@@ -14,7 +14,7 @@ import LoginPage from '../components/LoginPage';
 const AppRouter = () => (
 
     <BrowserRouter>
-        {!(window.location.pathname === '/') && <Header/>}
+        <Header/>
         <Routes>
             <Route path='/' element={<LoginPage/>}/>
             <Route path='/dashboard' element={<ExpenseDashboardPage/>}/>

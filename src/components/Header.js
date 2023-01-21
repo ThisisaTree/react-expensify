@@ -10,20 +10,15 @@ const Header = () => {
     const navigate = useNavigate();
 
     return (
-    <header>
-        <h1>Expensify</h1>
-        <NavLink to ="/dashboard"
-                 className = {({isActive}) => isActive ? 'is-active' : undefined}>
-            Dashboard
-        </NavLink>
-        <NavLink to ="/create"
-                 className = {({isActive}) => isActive ? 'is-active' : undefined}>
-            Create Expense
-        </NavLink>
-        <NavLink to ="/help"
-                 className = {({isActive}) => isActive ? 'is-active' : undefined}>
-            Help
-        </NavLink>
+    <header className='header'>
+        <div className='content-container'>
+        <div className="header__content">
+            <NavLink to ="/dashboard"
+                    className = 'header__title'>
+                <h1>Expensify</h1>
+            </NavLink>
+        </div>
+        </div>
     </header>
 )};
 
