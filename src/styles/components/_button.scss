@@ -9,3 +9,8 @@
     padding: $s-size;
     text-decoration: none;
 }
+
+.button__remove {
+    @extend .button;
+    background-color: #888888;
+}
