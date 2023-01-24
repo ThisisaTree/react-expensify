@@ -30,7 +30,7 @@ const EditExpensePage = (props) => {
             onSubmit={(expense) => {
                 props.dispatch(startEditExpense(id, expense));
                 console.log('updated');
-                navigate('/');
+                navigate('/dashboard');
             }}
         />
         <button 
