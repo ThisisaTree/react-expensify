@@ -8,6 +8,7 @@ import {startSetExpenses} from './actions/expenses';
 import {sortByAmount, sortByDate, setTextFilter, setStartDate, setEndDate} from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 import { onAuthStateChanged } from 'firebase/auth';
+import LoadingPage from './components/LoadingPage';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
@@ -30,7 +31,7 @@ const jsx = (
     </Provider>
     );
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+ReactDOM.render(<LoadingPage/>, document.getElementById('app'));
 
 store.dispatch(startSetExpenses()).then(() => {
     ReactDOM.render(jsx, document.getElementById('app'));
